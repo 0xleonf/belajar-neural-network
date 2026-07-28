@@ -17,7 +17,7 @@ Pastikan Anda sudah menginstal **Python** dan pustaka pendukung di komputer Anda
 
 1. **Clone repository ini**:
    ```bash
-   git clone [https://github.com/username/nama-repo.git](https://github.com/username/nama-repo.git)
+   git clone https://github.com/0xleonf/belajar-neural-network.git
    cd nama-repo
    ```
 2. **Unduh uv**
