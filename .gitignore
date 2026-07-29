@@ -1,0 +1,7 @@
+ANN/__pycache__
+ANN/ann.py
+ANN/ann_params.pt
+ANN/model_nn.pkl
+ANN/predict.py
+ANN/preds.py
+ANN/submission.csv
