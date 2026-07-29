@@ -5,7 +5,7 @@ from torch import Tensor
 X = torch.tensor([1.0, 2.0], requires_grad=True)
 
 # target
-y = 1.5
+y = 2.0
 
 # bobot awal
 bobot = torch.tensor([0.2, -0.3, 0.4, 0.1, 0.5, -0.4], requires_grad=True)
@@ -51,7 +51,7 @@ def backpropagation(prediksi: float) -> float:
 
 def gradient_descent(X: Tensor, bobot: Tensor, bias: Tensor, lr: float) -> Tensor:
     target = 1.5
-    for i in range(1000):
+    for i in range(100):
         hasil, relu1, relu2 = forward_pass(X, bobot, bias)
 
         print(f"iterasi: {
@@ -60,24 +60,24 @@ def gradient_descent(X: Tensor, bobot: Tensor, bias: Tensor, lr: float) -> Tenso
         dw11, dw12, dw21, dw22, dwo1, dwo2, db1, db2, dbo = backpropagation(
             hasil)
 
-        with torch.no_grad():
-            bobot[0] -= lr * dw11
-            bobot[1] -= lr * dw12
-            bobot[2] -= lr * dw21
-            bobot[3] -= lr * dw22
-            bobot[4] -= lr * dwo1
-            bobot[5] -= lr * dwo2
-            bias[0] -= lr * db1
-            bias[1] -= lr * db2
-            bias[2] -= lr * dbo
+    with torch.no_grad():
+        bobot[0] -= lr * dw11
+        bobot[1] -= lr * dw12
+        bobot[2] -= lr * dw21
+        bobot[3] -= lr * dw22
+        bobot[4] -= lr * dwo1
+        bobot[5] -= lr * dwo2
+        bias[0] -= lr * db1
+        bias[1] -= lr * db2
+        bias[2] -= lr * dbo
 
-            bobot.grad.zero_()
-            bias.grad.zero_()
+        bobot.grad.zero_()
+        bias.grad.zero_()
 
     return bobot, bias
 
 
-gradient_descent(X, bobot, bias, 0.01)
+gradient_descent(X, bobot, bias, 0.1)
 
 # lin = linear(X[0], X[1], bobot[0], bobot[1], bias[0])
 # fungsi = ReLU(lin)
